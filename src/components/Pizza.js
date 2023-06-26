@@ -1,7 +1,12 @@
-export const Pizza = () => {
+export const Pizza = ({ ingredients, name, photoName, price, soldOut }) => {
   return (
-    <>
-      <img src="pizzas/salamino.jpg" />
-    </>
+    <li className="pizza">
+      <img src={photoName} alt={name} />
+      <div className="pizza">
+        <h3>{name}</h3>
+        <p>{ingredients}</p>
+        <span>{price}</span>
+      </div>
+    </li>
   );
 };

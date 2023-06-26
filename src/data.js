@@ -42,3 +42,4 @@ export const pizzaData = [
     soldOut: false,
   },
 ];
+// export const pizzaData = [];
