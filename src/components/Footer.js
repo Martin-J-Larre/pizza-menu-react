@@ -1,4 +1,5 @@
 import { pizzaData } from "../data";
+import { Order } from "./Order";
 
 export const Footer = () => {
   const hour = new Date().getHours();
@@ -7,17 +8,22 @@ export const Footer = () => {
   const isOpen = hour >= openHour && hour <= closeHour;
   const noPizza = pizzaData.length > 0;
 
+  if (!isOpen)
+    return (
+      <footer className="footer">
+        <p>
+          We're close You're welcome to visit us since {openHour}:00 to{" "}
+          {closeHour}:00
+        </p>
+      </footer>
+    );
+
   return (
     <footer className="footer">
       {isOpen && noPizza ? (
-        <div className="order">
-          <p>We're open until {closeHour}:00. Come visit us or onder online</p>
-          <button className="btn">Order</button>
-        </div>
+        <Order closeHour={closeHour} />
       ) : (
-        <p>
-          We're open since {openHour}:00 to {closeHour}:00
-        </p>
+        <p>We'll be open soon</p>
       )}
     </footer>
   );
